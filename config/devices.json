@@ -1,0 +1,124 @@
+{
+  "devices": {
+    "PRJ_001": {
+      "name": "Epson EB-L1505U",
+      "type": "Projector",
+      "room": "Room 101",
+      "ip": "192.168.1.101",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "freeze", "unfreeze"]
+    },
+    "PRJ_002": {
+      "name": "Epson EB-L1505U",
+      "type": "Projector",
+      "room": "Room 202",
+      "ip": "192.168.1.102",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "freeze", "unfreeze"]
+    },
+    "PRJ_003": {
+      "name": "Christie DHD850-GS",
+      "type": "Projector",
+      "room": "Auditorium A",
+      "ip": "192.168.1.103",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "freeze", "unfreeze"]
+    },
+    "PRJ_004": {
+      "name": "Epson EB-PU2213B",
+      "type": "Projector",
+      "room": "Room 303",
+      "ip": "192.168.1.104",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "freeze", "unfreeze"]
+    },
+    "DSP_001": {
+      "name": "QSC Q-SYS Core 110f",
+      "type": "DSP",
+      "room": "Room 101",
+      "ip": "192.168.1.111",
+      "commands": ["set_volume", "mute", "unmute", "set_input_gain", "route_audio"]
+    },
+    "DSP_002": {
+      "name": "QSC Q-SYS Core 110f",
+      "type": "DSP",
+      "room": "Room 202",
+      "ip": "192.168.1.112",
+      "commands": ["set_volume", "mute", "unmute", "set_input_gain", "route_audio"]
+    },
+    "DSP_003": {
+      "name": "Biamp Tesira Forte",
+      "type": "DSP",
+      "room": "Auditorium A",
+      "ip": "192.168.1.113",
+      "commands": ["set_volume", "mute", "unmute", "set_input_gain", "route_audio"]
+    },
+    "SWT_001": {
+      "name": "Crestron DM-MD8x8",
+      "type": "Switcher",
+      "room": "Room 101",
+      "ip": "192.168.1.121",
+      "commands": ["route_input", "set_output", "reset", "get_status"]
+    },
+    "SWT_002": {
+      "name": "Extron XTP II CrossPoint",
+      "type": "Switcher",
+      "room": "Room 202",
+      "ip": "192.168.1.122",
+      "commands": ["route_input", "set_output", "reset", "get_status"]
+    },
+    "SWT_003": {
+      "name": "Crestron DM-MD16x16",
+      "type": "Switcher",
+      "room": "Auditorium A",
+      "ip": "192.168.1.123",
+      "commands": ["route_input", "set_output", "reset", "get_status"]
+    },
+    "CAM_001": {
+      "name": "PTZOptics PT20X-SDI",
+      "type": "PTZ Camera",
+      "room": "Auditorium A",
+      "ip": "192.168.1.141",
+      "commands": ["pan", "tilt", "zoom", "preset_recall", "preset_save", "power_on", "power_off"]
+    },
+    "CAM_002": {
+      "name": "PTZOptics PT20X-SDI",
+      "type": "PTZ Camera",
+      "room": "Room 303",
+      "ip": "192.168.1.142",
+      "commands": ["pan", "tilt", "zoom", "preset_recall", "preset_save", "power_on", "power_off"]
+    },
+    "DSP_004": {
+      "name": "QSC Q-SYS Core 110f",
+      "type": "Display",
+      "room": "Conference Room B",
+      "ip": "192.168.1.131",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "set_volume"]
+    },
+    "DSP_005": {
+      "name": "Samsung QM65R",
+      "type": "Display",
+      "room": "Conference Room B",
+      "ip": "192.168.1.151",
+      "commands": ["power_on", "power_off", "set_input", "set_brightness", "set_volume"]
+    }
+  },
+  "command_parameters": {
+    "power_on": {},
+    "power_off": {},
+    "set_input": {"input_source": ["HDMI_1", "HDMI_2", "DisplayPort", "VGA", "HDBaseT"]},
+    "set_brightness": {"brightness": "0-100"},
+    "freeze": {},
+    "unfreeze": {},
+    "set_volume": {"level": "0-100"},
+    "mute": {},
+    "unmute": {},
+    "set_input_gain": {"gain_db": "-60 to +20"},
+    "route_audio": {"input_channel": "1-8", "output_channel": "1-8"},
+    "route_input": {"input": "1-16", "output": "1-16"},
+    "set_output": {"output": "1-16", "source": "1-16"},
+    "reset": {},
+    "get_status": {},
+    "pan": {"direction": ["left", "right"], "speed": "1-24"},
+    "tilt": {"direction": ["up", "down"], "speed": "1-20"},
+    "zoom": {"direction": ["in", "out"], "speed": "1-7"},
+    "preset_recall": {"preset_id": "1-255"},
+    "preset_save": {"preset_id": "1-255"}
+  }
+}

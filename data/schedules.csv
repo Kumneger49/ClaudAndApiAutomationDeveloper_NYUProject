@@ -1,0 +1,14 @@
+shift_id,staff_id,staff_name,role,shift_date,start_time,end_time,room,building,equipment_assigned,notes
+SHF_001,STF_001,John Carter,Technician,2026-06-22,08:00,16:00,Room 101,Bobst Library,PRJ_001;DSP_001;SWT_001,Morning setup for lecture series
+SHF_002,STF_002,Sarah Lee,Technician,2026-06-22,10:00,18:00,Room 202,Bobst Library,PRJ_002;DSP_002;SWT_002,Afternoon workshop support
+SHF_003,STF_003,Mike Torres,Technician,2026-06-22,12:00,20:00,Auditorium A,Kimmel Center,PRJ_003;DSP_003;SWT_003;CAM_001,Evening event support
+SHF_004,STF_004,Lisa Wang,Manager,2026-06-22,09:00,17:00,Conference Room B,Silver Center,DSP_004;DSP_005,Full day coordination
+SHF_005,STF_005,David Kim,Technician,2026-06-22,14:00,22:00,Room 303,Silver Center,PRJ_004;CAM_002,Late evening class support
+SHF_006,STF_001,John Carter,Technician,2026-06-23,08:00,16:00,Room 101,Bobst Library,PRJ_001;DSP_001,Regular morning shift
+SHF_007,STF_002,Sarah Lee,Technician,2026-06-23,09:00,17:00,Auditorium A,Kimmel Center,PRJ_003;CAM_001,Rehearsal support
+SHF_008,STF_003,Mike Torres,Technician,2026-06-23,10:00,18:00,Room 202,Bobst Library,PRJ_002;DSP_002,Workshop coverage
+SHF_009,STF_004,Lisa Wang,Manager,2026-06-23,08:00,16:00,Conference Room B,Silver Center,DSP_005,Morning meetings
+SHF_010,STF_005,David Kim,Technician,2026-06-23,16:00,23:00,Auditorium A,Kimmel Center,SWT_003;CAM_001,Evening performance
+SHF_011,STF_001,John Carter,Technician,2026-06-24,07:00,15:00,Room 303,Silver Center,PRJ_004,Early morning setup
+SHF_012,STF_006,Rachel Gomez,Technician,2026-06-24,11:00,19:00,Room 101,Bobst Library,PRJ_001;DSP_001;SWT_001,Midday coverage
+SHF_013,STF_006,Rachel Gomez,Manager,2026-06-22,08:00,16:00,Room 101,Bobst Library,PRJ_001;SWT_001,Backup manager on duty

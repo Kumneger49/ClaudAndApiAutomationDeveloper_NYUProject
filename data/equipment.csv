@@ -1,0 +1,15 @@
+equipment_id,device_name,device_type,room,building,ip_address,status,last_maintenance,assigned_staff
+PRJ_001,Epson EB-L1505U,Projector,Room 101,Bobst Library,192.168.1.101,Online,2026-05-10,John Carter
+PRJ_002,Epson EB-L1505U,Projector,Room 202,Bobst Library,192.168.1.102,Online,2026-05-12,Sarah Lee
+PRJ_003,Christie DHD850-GS,Projector,Auditorium A,Kimmel Center,192.168.1.103,Maintenance,2026-06-01,Mike Torres
+DSP_001,QSC Q-SYS Core 110f,DSP,Room 101,Bobst Library,192.168.1.111,Online,2026-04-20,John Carter
+DSP_002,QSC Q-SYS Core 110f,DSP,Room 202,Bobst Library,192.168.1.112,Online,2026-04-22,Sarah Lee
+DSP_003,Biamp Tesira Forte,DSP,Auditorium A,Kimmel Center,192.168.1.113,Offline,2026-03-15,Mike Torres
+SWT_001,Crestron DM-MD8x8,Switcher,Room 101,Bobst Library,192.168.1.121,Online,2026-05-05,John Carter
+SWT_002,Extron XTP II CrossPoint,Switcher,Room 202,Bobst Library,192.168.1.122,Online,2026-05-07,Sarah Lee
+SWT_003,Crestron DM-MD16x16,Switcher,Auditorium A,Kimmel Center,192.168.1.123,Online,2026-05-20,Mike Torres
+DSP_004,QSC Q-SYS Core 110f,Display,Conference Room B,Silver Center,192.168.1.131,Online,2026-06-10,Lisa Wang
+CAM_001,PTZOptics PT20X-SDI,PTZ Camera,Auditorium A,Kimmel Center,192.168.1.141,Online,2026-05-28,Mike Torres
+CAM_002,PTZOptics PT20X-SDI,PTZ Camera,Room 303,Silver Center,192.168.1.142,Offline,2026-04-01,Lisa Wang
+DSP_005,Samsung QM65R,Display,Conference Room B,Silver Center,192.168.1.151,Online,2026-06-15,Lisa Wang
+PRJ_004,Epson EB-PU2213B,Projector,Room 303,Silver Center,192.168.1.104,Online,2026-06-08,Lisa Wang
