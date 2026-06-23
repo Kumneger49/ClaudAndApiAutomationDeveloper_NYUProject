@@ -2,11 +2,18 @@
 
 A unified web dashboard for NYU Audio-Visual Operations that connects two spreadsheets — AV Equipment Inventory and Staff Shift Schedules — into a single interface with Role-Based Access Control (RBAC) and AI-powered device command generation.
 
+**Live app:** [your Streamlit URL]
+**Source code:** https://github.com/Kumneger49/ClaudAndApiAutomationDeveloper_NYUProject
+
 ---
 
 ## Quick Start (Run Locally in 3 Steps)
 
 ```bash
+# Clone the repo
+git clone https://github.com/Kumneger49/ClaudAndApiAutomationDeveloper_NYUProject.git
+cd ClaudAndApiAutomationDeveloper_NYUProject
+
 # 1. Install dependencies
 pip install -r requirements.txt
 
@@ -18,71 +25,54 @@ cp .env.example .env
 streamlit run app.py
 ```
 
-To clone from GitHub first:
+Open **http://localhost:8501** in your browser.
 
-```bash
-git clone https://github.com/Kumneger49/ClaudAndApiAutomationDeveloper_NYUProject.git
-cd ClaudAndApiAutomationDeveloper_NYUProject
-```
-
-Open **http://localhost:8501** in your browser. That's it.
-
-> **No API key?** The app works fully without one — the AI Command tab uses a built-in keyword parser as fallback (see details below).
+> **No API key?** The app works fully without one — the AI Command tab uses a built-in keyword parser as fallback (see [How the AI works](#how-the-ai-works-and-the-fallback)).
 
 ---
 
-## Test Credentials
+## How to Test the Roles
 
-Log in with either account to explore different access levels:
+Log in with either account on the login screen:
 
-| Role | Username | Password | What you can do |
+| Role | Username | Password | Access |
 |---|---|---|---|
-| **Manager** | `manager` | `mgr123` | View data + send device commands + see audit log |
-| **Technician** | `technician` | `tech123` | View data only (read-only) |
+| **Manager** | `manager` | `mgr123` | Equipment + Schedules + Device Control + Audit Log |
+| **Technician** | `technician` | `tech123` | Equipment + Schedules only (read-only) |
+
+Logging in as **Technician** shows two read-only tabs. The Device Control and Audit Log tabs are not rendered at all — the restriction is enforced server-side via session state, not just hidden in the UI.
+
+Logging in as **Manager** unlocks the full dashboard including device command generation.
 
 ---
 
-## Features
-
-### All Users
-- **Equipment Inventory** — 14 AV devices across 5 rooms, filterable by type, building, and status
-- **Staff Schedules** — 13 shifts across 3 days, filterable by date, role, and building
-
-### Manager Only
-- **Device Control — Form Builder**: pick a device and command from dropdowns, set parameters, generate a JSON control payload
-- **Device Control — AI Command**: type a plain-English command and get a structured JSON payload back
-- **Audit Log**: every command sent this session, with full JSON, timestamp, and issuing user
-
-### Role Enforcement
-Technicians see only 2 tabs. The Device Control and Audit Log tabs are hidden entirely — not just disabled. This is enforced server-side via Streamlit session state.
-
----
-
-## How to Use the AI Command Feature
+## How to Trigger a Device Command (Manager only)
 
 1. Log in as `manager / mgr123`
 2. Click the **⚡ Device Control** tab
-3. Click the **🤖 AI Command (Gemini)** sub-tab
-4. Type a plain-English command or pick one of the examples:
-   - `Turn on the projector in Room 101 and set input to HDMI 1`
-   - `Mute the DSP in Auditorium A`
-   - `Set volume to 75 on Room 202 DSP`
-   - `Power off all projectors`
-5. Click **Generate** — a JSON payload appears immediately below
+3. Choose either mode:
 
-### How the AI works (and the fallback)
+**Option A — Form Builder**
+- Select a device from the dropdown (e.g. *Epson EB-L1505U — Room 101*)
+- Pick a command (e.g. `power_on`)
+- Set any parameters (e.g. input source, volume level)
+- Click **⚡ Send Command**
 
-The app calls **Google Gemini 2.0 Flash** to parse natural language into structured JSON. Gemini is given the full device registry as context so it can resolve room names, device types, and valid commands intelligently.
-
-If Gemini is unavailable (no API key, quota exceeded, or network error), the app **automatically falls back to a built-in keyword parser** — no error shown to the user, no broken state. The fallback uses keyword matching and regex to produce an identical JSON structure. This means the app is fully functional in any environment.
-
-You can tell which path ran by checking the `parsed_by` field in the JSON output:
-- `"parsed_by"` absent → Gemini was used
-- `"parsed_by": "local_nlp"` → fallback parser was used
+**Option B — AI Command**
+- Click the **🤖 AI Command (Gemini)** sub-tab
+- Type a plain-English instruction, or pick an example:
+  - `Turn on the projector in Room 101 and set input to HDMI 1`
+  - `Mute the DSP in Auditorium A`
+  - `Set volume to 75 on Room 202 DSP`
+  - `Power off all projectors`
+  - `Recall preset 3 on the Auditorium A camera`
+- Click **Generate**
 
 ---
 
-## Example JSON Payload
+## Where to View the Generated JSON Payload
+
+The payload appears immediately below the control panel after every command:
 
 ```json
 {
@@ -102,11 +92,27 @@ You can tell which path ran by checking the `parsed_by` field in the JSON output
 }
 ```
 
-Every payload is also saved to the **📋 Audit Log** tab and can be downloaded as a `.json` file.
+You can also:
+- **Download** the payload as a `.json` file using the Download button
+- **Review the full session history** in the **📋 Audit Log** tab — every command sent, with timestamp, issuing user, target device, and complete JSON
 
 ---
 
-## Data Sources
+## How the AI Works (and the Fallback)
+
+The app calls **Google Gemini 2.0 Flash** to parse natural language into structured JSON. Gemini receives the full device registry as context so it can resolve room names, device types, and valid commands intelligently.
+
+If Gemini is unavailable (no API key, quota exceeded, or network error), the app **silently falls back to a built-in keyword parser** — no error is shown, no broken state. The fallback uses keyword matching and regex to produce an identical JSON structure. The app is fully functional in either mode.
+
+You can tell which path ran by checking the `parsed_by` field in the output:
+- `"parsed_by"` absent → Gemini was used
+- `"parsed_by": "local_nlp"` → fallback parser was used
+
+---
+
+## Mock Data Sources
+
+Both spreadsheets are included in the repository as CSV files:
 
 | Source | Description | File |
 |---|---|---|
@@ -122,7 +128,7 @@ Mock data covers real NYU-style AV hardware: Epson and Christie projectors, QSC 
 
 ```
 .
-├── app.py                  # Main Streamlit application (~890 lines)
+├── app.py                  # Main Streamlit application
 ├── data/
 │   ├── equipment.csv       # AV Equipment Inventory (Spreadsheet A)
 │   └── schedules.csv       # Staff Shift Schedules (Spreadsheet B)
