@@ -18,6 +18,13 @@ cp .env.example .env
 streamlit run app.py
 ```
 
+To clone from GitHub first:
+
+```bash
+git clone https://github.com/Kumneger49/ClaudAndApiAutomationDeveloper_NYUProject.git
+cd ClaudAndApiAutomationDeveloper_NYUProject
+```
+
 Open **http://localhost:8501** in your browser. That's it.
 
 > **No API key?** The app works fully without one — the AI Command tab uses a built-in keyword parser as fallback (see details below).
