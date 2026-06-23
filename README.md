@@ -3,6 +3,7 @@
 A unified web dashboard for NYU Audio-Visual Operations that connects two spreadsheets — AV Equipment Inventory and Staff Shift Schedules — into a single interface with Role-Based Access Control (RBAC) and AI-powered device command generation.
 
 **Live app:** https://kumneger49-claudandapiautomationdeveloper-nyuproject-app-ix4df2.streamlit.app/
+
 **Source code:** https://github.com/Kumneger49/ClaudAndApiAutomationDeveloper_NYUProject
 
 ---
