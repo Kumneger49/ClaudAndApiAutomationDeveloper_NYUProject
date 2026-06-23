@@ -372,7 +372,7 @@ def show_equipment(equipment_df):
         "assigned_staff": "Assigned Staff",
     })
 
-    styled = display_df.style.applymap(style_status, subset=["Status"])
+    styled = display_df.style.map(style_status, subset=["Status"])
     st.dataframe(styled, use_container_width=True, hide_index=True, height=420)
     st.caption(f"Showing {len(filtered)} of {len(equipment_df)} devices")
 
@@ -433,7 +433,7 @@ def show_schedules(schedules_df):
         "notes": "Notes",
     })
 
-    styled = display_df.style.applymap(style_role, subset=["Role"])
+    styled = display_df.style.map(style_role, subset=["Role"])
     st.dataframe(styled, use_container_width=True, hide_index=True, height=420)
     st.caption(f"Showing {len(filtered)} of {len(schedules_df)} shifts")
 
